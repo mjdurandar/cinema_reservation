@@ -26,15 +26,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php 
+
+                            $i=1;
+
+                            ?>
                             @foreach($data as $item)
                             <tr>
-                                <th scope="row">{{$item['id']}}</th>
+                                <th scope="row">{{$i++}}</th>
                                 <td>{{$item['movie_name']}}</td>
                                 <td>{{$item['cinema']}}</td>
                                 <td>{{$item['description']}}</td>
                                 <td>{{$item['ticket_price']}}</td>
                                 <td>
-                                    <a href="{{ url('product/edit/' . $item['id']) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ url('movie/edit/' . $item['id']) }}" class="btn btn-primary">Edit</a>
                                     <a href="{{ url('movie/destroy/' . $item['id']) }}" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>

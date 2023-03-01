@@ -19,7 +19,7 @@
                         <div class="box_1">
                             <b>MOVIES</b>  
                             <div class="pt-3">
-                            <span style="font-size:60px;">14</span>
+                            <span style="font-size:60px;">{{$movie_total}}</span>
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,33 @@
                         <div class="box_2">
                             <b>TICKETS</b>  
                             <div class="pt-3">
-                            <span style="font-size:60px;">500</span>
+                            <span style="font-size:60px;">{{$ticket_min}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="box_3">
+                            <b>RESERVATION</b> 
+                            <div class="pt-3">
+                            <span style="font-size:60px;">56</span>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mt-5">
+                    <div class="col-12 col-lg-4">
+                        <div class="box_1">
+                            <b>CINEMA</b>  
+                            <div class="pt-3">
+                            <span style="font-size:60px;">50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="box_2">
+                            <b>AVAILABLE SEATS</b>  
+                            <div class="pt-3">
+                            <span style="font-size:60px;">256</span>
                             </div>
                         </div>
                     </div>
@@ -35,7 +61,7 @@
                         <div class="box_3">
                             <b>COLLECTED</b> 
                             <div class="pt-3">
-                            <span style="font-size:60px;">30</span>
+                            <span style="font-size:60px;">450</span>
                             </div> 
                         </div>
                     </div>
