@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Route::get('/', [App\Http\Controllers\MovieController::class, 'index']);
+Route::post('/ticket', [App\Http\Controllers\MovieController::class, 'ticket']);
 
 
 Auth::routes();

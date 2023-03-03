@@ -9,10 +9,12 @@
                 <a href="{{ url('home')}}"><li class="my_li" style="border-top:2px solid white;">Master Data</li></a>
                 <a href="{{ url('create_movie')}}"><li class="my_li">Create Movie</li></a>
                 <a href="{{ url('table')}}"><li class="my_li">Table Data</li></a>
-                <a href="{{ url('create_movie')}}"><li class="my_li">Total Sales</li></a>
             </ul>   
         </div>
         <div class="display">
+            <div class="text-center pt-5">
+                <h1>Master Data</h1>
+            </div>
             <div class="boxes p-5">
                 <div class="row text-center">
                     <div class="col-12 col-lg-4">
@@ -25,9 +27,9 @@
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="box_2">
-                            <b>TICKETS</b>  
+                            <b>TOTAL</b>  
                             <div class="pt-3">
-                            <span style="font-size:60px;">{{$ticket_min}}</span>
+                            <span style="font-size:60px;">{{$sum[0]['total']}}</span>
                             </div>
                         </div>
                     </div>
@@ -35,7 +37,7 @@
                         <div class="box_3">
                             <b>RESERVATION</b> 
                             <div class="pt-3">
-                            <span style="font-size:60px;">56</span>
+                            <span style="font-size:60px;">{{$sum[0]['total_res']}}</span>
                             </div> 
                         </div>
                     </div>
@@ -43,25 +45,25 @@
                 <div class="row text-center mt-5">
                     <div class="col-12 col-lg-4">
                         <div class="box_1">
-                            <b>CINEMA</b>  
+                            <b>CINEMA 1</b>  
                             <div class="pt-3">
-                            <span style="font-size:60px;">50</span>
+                            <span style="font-size:60px;">{{20 - $cinema[0]['total'] }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="box_2">
-                            <b>AVAILABLE SEATS</b>  
+                            <b>CINEMA 2</b>  
                             <div class="pt-3">
-                            <span style="font-size:60px;">256</span>
+                            <span style="font-size:60px;">{{20 - $cinema[1]['total'] }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="box_3">
-                            <b>COLLECTED</b> 
+                            <b>CINEMA 3</b> 
                             <div class="pt-3">
-                            <span style="font-size:60px;">450</span>
+                            <span style="font-size:60px;">{{20 - $cinema[2]['total'] }}</span>
                             </div> 
                         </div>
                     </div>

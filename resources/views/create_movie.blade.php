@@ -9,21 +9,24 @@
                 <a href="{{ url('home')}}"><li style="border-top:2px solid white;">Master Data</li></a>
                 <a href="{{ url('create_movie')}}"><li>Create Movie</li></a>
                 <a href="{{ url('table')}}"><li>Table Data</li></a>
-                <a href="{{ url('create_movie')}}"><li>Total Sales</li></a>
                
             </ul>   
         </div>
     
         <div class="create_movie">
-            <form action="{{ url('movie/edit') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('movie/store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Movie Name: </label>
                 <input type="text" name="movie_name" class="form-control" id="exampleFormControlInput1">
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Cinema: </label>
-                <input type="text" name="cinema" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1" class="form-label">Cinema: </label>
+            <div class="dropdown pb-3">
+            <select class="form-select" name="cinema">
+                <option value="Cinema 1"><a class="dropdown-item" href="#">Cinema 1</a></option>
+                <option value="Cinema 2"><a class="dropdown-item" href="#">Cinema 2</a></option>
+                <option value="Cinema 3"><a class="dropdown-item" href="#">Cinema 3</a></option>
+            </select>
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Image: </label>

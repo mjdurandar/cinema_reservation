@@ -21,7 +21,7 @@
         <!-- CAROUSEL -->
         @include('partials.carousel')
         <!-- CARD -->
-        @include('partials.card')
+        @include('partials.card')   
         <!-- CONTACT_US -->
         @include('partials.contact')
         <!-- FOOTER -->

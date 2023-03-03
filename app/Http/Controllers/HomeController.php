@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Movie;
-
 use Illuminate\Http\Request;
+use App\Models\Reserved_ticket;
 
 class HomeController extends Controller
 {
@@ -26,14 +26,13 @@ class HomeController extends Controller
     {   
         $movie_total = Movie::count();
         $ticket_min = 500 - Movie::count();
-        return view('home',compact('movie_total','ticket_min'));
+        $sum = Reserved_ticket::select(Reserved_ticket::raw('SUM(ticket_price) as total'),Reserved_ticket::raw('COUNT(*) as total_res') )->get();
+        $cinema = Reserved_ticket::select('cinema',Reserved_ticket::raw('COUNT(id) as total'))
+                                ->groupBy('cinema')
+                                ->orderBy('cinema')->get();
+        return view('home',compact('movie_total','ticket_min', 'sum', 'cinema'));
     }
 
-    public function reserve()
-    {   
-        $reserve_total = Movie::count();
-        return view('reserve',compact('reserve_total'));
-    }
 
     public function create_movie()
     {
@@ -51,12 +50,14 @@ class HomeController extends Controller
         $request->validate([
             'movie_name' => 'required',
             'cinema' => 'required',
+            'image' => 'required',
             'description' => 'required',
             'ticket_price' => 'required'
         ],
         [
             'movie_name.required' => 'This Field is required',
             'cinema.required' => 'required',
+            'image' => 'required',
             'description.required' => 'required',
             'ticket_price.required' => 'required'
         ]
@@ -89,15 +90,19 @@ class HomeController extends Controller
 
     public function update(Request $request){
         
+        $image = $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public/images/', $image);
         $request->validate([
             'movie_name' => 'required',
             'cinema' => 'required',
+            'image' => 'required',
             'description' => 'required',
             'ticket_price' => 'required'
         ],
         [
             'movie_name.required' => 'This Field is required',
             'cinema.required' => 'required',
+            'image' => 'required',
             'description.required' => 'required',
             'ticket_price.required' => 'required'
         ]
@@ -107,6 +112,7 @@ class HomeController extends Controller
         $data = Movie::where('id', $request->id)->first();
         $data->movie_name = $request->movie_name;
         $data->cinema = $request->cinema;
+        $data->image = $image;
         $data->description = $request->description;
         $data->ticket_price = $request->ticket_price;
         $data->save();

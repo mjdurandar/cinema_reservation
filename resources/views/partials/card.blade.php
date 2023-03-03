@@ -10,6 +10,7 @@
                                 <img src="{{asset('storage/images/'.$item->image)}}" class="card-img-top" alt="..." >
                                     <div class="card-body">
                                         <h5 class="card-title">{{$item['movie_name']}}</h5>
+                                        <p class="card-text">{{$item['cinema']}}</p>
                                         <p class="card-text">{{$item['description']}}</p>
                                         <p class="card-text">{{$item['ticket_price']}}</p>
                                         <div class="text-center pt-2">
@@ -28,13 +29,24 @@
                         <div class="modal-body">
                             <div class="card-body">
                                     <h5 class="card-title">{{$item['movie_name']}}</h5>
-                                    <p class="card-text">{{$item['description']}}</p>
+                                    <p class="card-text">{{$item['description']}} 
+                                        <br>
+                                        {{$item['cinema']}}
+                                    </p>
                                     <p class="card-text">{{$item['ticket_price']}}</p>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a type="button" href="{{ url('reserve')}}" class="btn btn-success">Confirm</a>
+                            <form action="{{url('/ticket')}}" method ="POST">
+                                @csrf
+                                <input type="text" value="{{$item['id']}}" name="id">
+                                <input type="text" value="{{$item['movie_name']}}" name="movie_name">
+                                <input type="text" value="{{$item['cinema']}}" name="cinema">
+                                <input type="text" value="{{$item['description']}}" name="description">
+                                <input type="text" value="{{$item['ticket_price']}}" name="ticket_price">
+                                <button type="submit" class="btn btn-success">Confirm</button>
+                            </form>
                         </div>
                         </div>
                     </div>

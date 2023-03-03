@@ -10862,6 +10862,17 @@ li:hover{
   width: 85%;
 }
 
+.box_text{
+  width: 30%;
+  margin: auto;
+  color: green;
+  margin-top: 20px;
+  background-color: white;
+  height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px;
+} 
+
 .box_1{
   /* outline: 2px solid black; */
   width: 80%;

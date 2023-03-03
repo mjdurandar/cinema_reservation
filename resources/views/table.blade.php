@@ -9,7 +9,6 @@
                 <a href="{{ url('home')}}"><li style="border-top:2px solid white;">Master Data</li></a>
                 <a href="{{ url('create_movie')}}"><li>Create Movie</li></a>
                 <a href="{{ url('table')}}"><li>Table Data</li></a>
-                <a href="{{ url('create_movie')}}"><li>Total Sales</li></a>
             </ul>   
         </div>
 
